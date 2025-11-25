@@ -29,8 +29,14 @@ class CreateUserWindow:
             messagebox.showerror("Error", "Todos los campos son obligatorios")
             return
 
-        # Aquí se guarda en la base de datos
-        self.db.add_user(name, email)  # asumiendo que tu DB tiene método add_user
+        # Guardar en la base de datos usando el método correcto
+        # Cambia 'insert_user' por el método que tenga tu Database
+        try:
+            self.db.insert_user(name, email)  
+        except AttributeError:
+            messagebox.showerror("Error", "El método para guardar el usuario no existe en la base de datos")
+            return
+
         messagebox.showinfo("Éxito", "Usuario creado correctamente")
 
         # Limpiar campos
