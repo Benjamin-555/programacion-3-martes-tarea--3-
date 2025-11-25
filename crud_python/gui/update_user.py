@@ -91,3 +91,4 @@ class UpdateUserWindow:
         self.db.update_user(self.selected_id, name, email)
         self.load_data()
         messagebox.showinfo("Éxito", "Usuario actualizado correctamente")
+      

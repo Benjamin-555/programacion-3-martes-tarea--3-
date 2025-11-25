@@ -29,3 +29,8 @@ class Database:
         """
         self.conn.execute(query, (new_name, new_email, user_id))
         self.conn.commit()
+
+    def get_users(self):
+        query = "SELECT id, name, email FROM users"
+        cursor = self.conn.execute(query)
+        return cursor.fetchall()
