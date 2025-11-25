@@ -15,3 +15,8 @@ class Database:
         """
         self.conn.execute(query)
         self.conn.commit()
+
+    def delete_user(self, user_id):
+        query = "DELETE FROM users WHERE id = ?"
+        self.conn.execute(query, (user_id,))
+        self.conn.commit()
