@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 class CreateUserWindow:
     def __init__(self, root, db):
@@ -21,8 +21,18 @@ class CreateUserWindow:
             row=2, column=0, columnspan=2, pady=10)
 
     def save_user(self):
-        name = self.name_var.get()
-        email = self.email_var.get()
+        name = self.name_var.get().strip()
+        email = self.email_var.get().strip()
 
-        print(f"Se guardaría: {name} - {email}")
+        # Validación de campos vacíos
+        if not name or not email:
+            messagebox.showerror("Error", "Todos los campos son obligatorios")
+            return
 
+        # Aquí se guarda en la base de datos
+        self.db.add_user(name, email)  # asumiendo que tu DB tiene método add_user
+        messagebox.showinfo("Éxito", "Usuario creado correctamente")
+
+        # Limpiar campos
+        self.name_var.set("")
+        self.email_var.set("")
