@@ -16,6 +16,12 @@ class Database:
         self.conn.execute(query)
         self.conn.commit()
 
+    # Nuevo método para agregar usuarios
+    def insert_user(self, name, email):
+        query = "INSERT INTO users (name, email) VALUES (?, ?)"
+        self.conn.execute(query, (name, email))
+        self.conn.commit()
+
     def delete_user(self, user_id):
         query = "DELETE FROM users WHERE id = ?"
         self.conn.execute(query, (user_id,))
