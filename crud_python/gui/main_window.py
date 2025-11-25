@@ -31,3 +31,8 @@ class MainWindow:
     # Abrir ventana de eliminación
     def open_delete_user(self):
         DeleteUserWindow(self.root, self.db)
+        ttk.Button(root, text="Crear Usuario",
+                   command=self.open_create_user).pack(pady=10)
+
+    def open_create_user(self):
+        CreateUserWindow(self.root, self.db)
