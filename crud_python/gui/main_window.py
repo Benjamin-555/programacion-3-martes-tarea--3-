@@ -43,3 +43,8 @@ class MainWindow:
     # Abrir ventana de actualización
     def open_update_user(self):
         UpdateUserWindow(self.root, self.db)
+        ttk.Button(root, text="Crear Usuario",
+                   command=self.open_create_user).pack(pady=10)
+
+    def open_create_user(self):
+        CreateUserWindow(self.root, self.db)
