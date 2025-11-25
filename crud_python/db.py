@@ -20,3 +20,12 @@ class Database:
         query = "DELETE FROM users WHERE id = ?"
         self.conn.execute(query, (user_id,))
         self.conn.commit()
+
+    def update_user(self, user_id, new_name, new_email):
+        query = """
+        UPDATE users
+        SET name = ?, email = ?
+        WHERE id = ?
+        """
+        self.conn.execute(query, (new_name, new_email, user_id))
+        self.conn.commit()

@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from gui.create_user import CreateUserWindow
 from gui.delete_user import DeleteUserWindow
+from gui.update_user import UpdateUserWindow
 from db import Database
 
 class MainWindow:
@@ -24,6 +25,13 @@ class MainWindow:
             command=self.open_delete_user
         ).pack(pady=10)
 
+        # Botón Actualizar Usuario
+        ttk.Button(
+            root,
+            text="Actualizar Usuario",
+            command=self.open_update_user
+        ).pack(pady=10)
+
     # Abrir ventana de creación
     def open_create_user(self):
         CreateUserWindow(self.root, self.db)
@@ -31,6 +39,10 @@ class MainWindow:
     # Abrir ventana de eliminación
     def open_delete_user(self):
         DeleteUserWindow(self.root, self.db)
+
+    # Abrir ventana de actualización
+    def open_update_user(self):
+        UpdateUserWindow(self.root, self.db)
         ttk.Button(root, text="Crear Usuario",
                    command=self.open_create_user).pack(pady=10)
 

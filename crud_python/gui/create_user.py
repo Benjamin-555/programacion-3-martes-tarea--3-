@@ -25,4 +25,3 @@ class CreateUserWindow:
         email = self.email_var.get()
 
         print(f"Se guardaría: {name} - {email}")
-
