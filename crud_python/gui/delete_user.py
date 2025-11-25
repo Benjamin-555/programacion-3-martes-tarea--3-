@@ -69,3 +69,4 @@ class DeleteUserWindow:
         self.load_data()
 
         messagebox.showinfo("Éxito", "Usuario eliminado correctamente.")
+      

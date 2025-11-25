@@ -51,3 +51,4 @@ class MainWindow:
 
     def open_view_users(self):
         ViewUsersWindow(self.root, self.db)
+
