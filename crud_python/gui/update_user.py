@@ -81,13 +81,20 @@ class UpdateUserWindow:
             messagebox.showwarning("Error", "Seleccione un usuario primero")
             return
 
-        name = self.name_var.get()
-        email = self.email_var.get()
+        name = self.name_var.get().strip()
+        email = self.email_var.get().strip()
 
+        # Validación de campos vacíos
         if not name or not email:
             messagebox.showwarning("Atención", "Todos los campos son obligatorios")
             return
 
+        # Guardar cambios en la base de datos
         self.db.update_user(self.selected_id, name, email)
         self.load_data()
         messagebox.showinfo("Éxito", "Usuario actualizado correctamente")
+
+        # Limpiar selección y campos
+        self.selected_id = None
+        self.name_var.set("")
+        self.email_var.set("")
