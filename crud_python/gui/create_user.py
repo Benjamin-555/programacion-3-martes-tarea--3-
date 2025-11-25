@@ -30,7 +30,6 @@ class CreateUserWindow:
             return
 
         # Guardar en la base de datos usando el método correcto
-        # Cambia 'insert_user' por el método que tenga tu Database
         try:
             self.db.insert_user(name, email)  
         except AttributeError:
